@@ -143,7 +143,7 @@ set_property(TARGET cpu_features PROPERTY POSITION_INDEPENDENT_CODE ${BUILD_PIC}
 target_include_directories(cpu_features
   PUBLIC $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/cpu_features>
 )
-if(PROCESSOR_IS_X86)
+if(PROCESSOR_IS_X86 OR PROCESSOR_IS_AARCH64)
   if(APPLE)
     target_compile_definitions(cpu_features PRIVATE HAVE_SYSCTLBYNAME)
   endif()
